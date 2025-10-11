@@ -14,9 +14,10 @@ import Project from "./components/Project"
 import Skills from "./components/Skills"
 import Layout from "./components/Layout"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createHashRouter } from 'react-router-dom'
 
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
     path: "/",
     element: <Layout />,
