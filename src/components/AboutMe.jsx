@@ -30,7 +30,7 @@ const AboutMe = () => {
 
             <div className="flex flex-col items-center space-y-4  p-4 rounded">
                 <div className='w-44 h-44 rounded-full backdrop-blur-sm bg-gray-900/10 shadow-lg flex items-center justify-center'>
-                    <img src='public/Bibek Poudel02_pp.jpg' alt='about' className="w-40 h-40 object-cover object-top rounded-full shadow-md bg-gray-400/25"></img>
+                    <img src='/Bibek Poudel02_pp.jpg' alt='about' className="w-40 h-40 object-cover object-top rounded-full shadow-md bg-gray-400/25"></img>
                 </div>
 
 
