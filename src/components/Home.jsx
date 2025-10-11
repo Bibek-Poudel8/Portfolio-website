@@ -5,20 +5,19 @@ const Home = () => {
   return (
     <div className='min-h-screen flex flex-col'>
       <section
-        className="px-10 pt-60 w-full flex gap-12 flex-col 
-                   justify-center items-center align-center 
-                   mb-16 lg:mt-10 max-w-5xl mx-auto lg:gap-0 h-auto">
-        <div className="flex-1 flex flex-col justify-center items-center gap-5">
+        className="pt-[300px] sm:pt-[280px] px-4 sm:px-8 w-full flex flex-col 
+             justify-center items-center mb-16 max-w-5xl mx-auto gap-8 sm:gap-12">
+        <div className="flex-1 flex flex-col justify-center items-center gap-4 sm:gap-6 text-center">
           <div>
 
-            <h4 className="text-left text-3xl font-bold">
+            <h4 className="text-xl sm:text-2xl md:text-3xl font-bold">
               Hello there!
             </h4>
-            <h2 className="text-center text-blue-500 text-8xl font-bold">
+            <h2 className="text-blue-500 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mt-2">
               I'm Bibek Poudel
             </h2>
           </div>
-          <p className='text-center text-2xl'>
+          <p className="text-base sm:text-lg md:text-2xl text-gray-700 max-w-2xl">
             Data Science | Machine Learning | Deep Learning
           </p>
 
