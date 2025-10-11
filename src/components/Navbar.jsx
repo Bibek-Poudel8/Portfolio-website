@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <nav className={`max-w-5xl mx-auto mt-4 px-4 sm:px-10 py-3
                 fixed left-0 right-0 z-50
-                ${isOpen ? "rounded-xl" : "rounded-md"}
+                ${isOpen ? "rounded-sm" : "rounded-full"}
                 border border-white/30
                 bg-neutral-200/60 backdrop-blur-md
                 shadow-lg text-black transition-all duration-300`}>
