@@ -15,7 +15,7 @@ export default function Navbar() {
                 bg-neutral-200/60 backdrop-blur-md
                 shadow-lg text-black transition-all duration-300`}>
       <div className="flex items-center justify-between w-full">
-        {/* Logo */}
+        {/* Text section */}
 
         <h3 className="text-2xl sm:text-3xl font-bold">Bibek | Portfolio</h3>
 
@@ -90,6 +90,7 @@ export default function Navbar() {
         </ul>
 
         {/* Mobile Menu Button */}
+        
         <button
           onClick={toggleMenu}
           className="lg:hidden text-2xl text-black"
