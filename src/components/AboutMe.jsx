@@ -6,23 +6,22 @@ const AboutMe = () => {
     return (
         <section
 
-            className="px-10 w-full flex flex-row lg:flex-row py-20 justify-between items-center 
-                         max-w-7xl mx-auto min-h-screen">
+            className="px-4 sm:px-10 w-full flex flex-col lg:flex-row py-20 justify-center items-center 
+                    max-w-7xl mx-auto min-h-screen gap-10">
 
 
-            <div className="flex flex-col justify-center items-center gap-10 px-6 
-                bg-gray-200 text-black p-8 rounded-xl shadow-lg w-3/4 h-[50vh]">
+            <div className="flex flex-col justify-center items-center gap-6 px-4 sm:px-6 
+                  bg-gray-200 text-black p-6 sm:p-8 rounded-xl shadow-lg w-full sm:w-3/4 max-w-2xl">
                 <div>
-                    <h2 className="text-center text-blue-500
-                                   text-5xl font-bold">
+                    <h2 className="text-center text-blue-500 text-3xl sm:text-4xl lg:text-5xl font-bold">
                         About Me :
                     </h2>
                 </div>
-                <p>
+                <p className='text-center text-sm sm:text-base leading-relaxed'>
                     I am Bibek Poudel , a tech enthusiast and CS student, who wants to build end-to-end AI products that bring positive impact on society.
                 </p>
 
-                <p>
+                <p className='text-center text-sm sm:text-base leading-relaxed'>
                     I have strong expertise in Data analytics, Data science, Machine learning, and Deep learning. I have a basic understanding of web development that helps me deploy those projects I have created. I enjoy creating products that help people in their day-to-day life.
                 </p>
 
