@@ -13,7 +13,8 @@ export default function Navbar() {
                 ${isOpen ? "rounded-sm" : "rounded-full"}
                 border border-white/30
                 bg-neutral-200/60 backdrop-blur-md
-                shadow-lg text-black transition-all duration-300`}>
+                shadow-lg text-black
+                 transition-[opacity,transform] duration-300`}>
       <div className="flex items-center justify-between w-full">
         {/* Text section */}
 
