@@ -4,16 +4,16 @@ import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <nav className="max-w-5xl mx-auto mt-4 px-5 sm:px-10 py-4
+    <nav className="max-w-5xl mx-auto mt-4 px-4 sm:px-10 py-3
                 fixed left-0 right-0 z-50
                 rounded-full border border-white/30
                 bg-neutral-200/60 backdrop-blur-md
                 shadow-lg text-black">
-      <div className="container flex flex-col lg:flex-row
-                            gap-5 justify-between w-full 
-                            items-center max-w-5xl mx-auto">
-        <h3 className='text-3xl text-black-600 font-bold'>Bibek | Portfolio</h3>
-        <ul className="flex gap-3 align-center p-1 flex-wrap">
+      <div className="flex flex-col lg:flex-row 
+                  items-center justify-between 
+                  w-full gap-4">
+        <h3 className="text-2xl sm:text-3xl font-bold text-black">Bibek | Portfolio</h3>
+        <ul className="flex gap-3 flex-wrap items-center p-1">
 
          <li>
   <NavLink

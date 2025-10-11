@@ -26,10 +26,10 @@ const Home = () => {
 
 
         {/* Socials */}
-        <div className="mt-0 lg:mt-12 flex items-center justify-center gap-6 text-gray-600">
+        <div className="mt-4 lg:mt-12 w-full flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-gray-600 text-center">
           {/* Label */}
-          <span className="text-lg font-semibold text-gray-800">Socials |</span>
-
+          <span className="text-base sm:text-lg font-semibold text-gray-800">Socials |</span>
+          <div className="flex items-center gap-4">
           {/* Facebook */}
           <a
             href="https://www.facebook.com/bibek.poudel.728348"
@@ -73,6 +73,7 @@ const Home = () => {
           >
             <FaEnvelope size={24} />
           </a>
+          </div>
         </div>
 
       </section>
