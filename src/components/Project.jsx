@@ -1,6 +1,5 @@
 import React from 'react'
 import { FaGithub } from 'react-icons/fa';
-import projectpic1 from "public/Projectmovie_Output_3.png"
 
 const Project = () => {
   return (
@@ -17,7 +16,7 @@ const Project = () => {
         <div className="w-full lg:w-1/2 overflow-hidden rounded-lg">
 
           <img
-            src={projectpic1}
+            src="public/Projectmovie_Output_3.png"
             alt="ProjectMovie"
             className="w-full h-full object-cover rounded-lg hover:opacity-90 transition"
           />
