@@ -11,7 +11,8 @@ const Skills = () => {
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* Machine Learning */}
-          <div className="bg-white/90 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:bg-indigo-100">
+          <div className="bg-white/90 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:bg-indigo-100 active:scale-105 active:bg-indigo-100
+                focus:scale-105 focus:bg-indigo-100">
             <h3 className="text-xl font-semibold text-gray-700 mb-2">🧠 Machine Learning & Deep Learning</h3>
             <ul className="list-disc list-inside text-gray-600 space-y-1">
               <li>Scikit-learn</li>
@@ -22,7 +23,8 @@ const Skills = () => {
           </div>
 
           {/* Data Science */}
-          <div className="bg-white/90 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:bg-indigo-100">
+          <div className="bg-white/90 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:bg-indigo-100 active:scale-105 active:bg-indigo-100
+                focus:scale-105 focus:bg-indigo-100">
             <h3 className="text-xl font-semibold text-gray-700 mb-2">📊 Data Science & Analysis</h3>
             <ul className="list-disc list-inside text-gray-600 space-y-1">
               <li>NumPy</li>
@@ -33,7 +35,8 @@ const Skills = () => {
           </div>
 
           {/* Web Development */}
-          <div className="bg-white/90 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:bg-indigo-100">
+          <div className="bg-white/90 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:bg-indigo-100 active:scale-105 active:bg-indigo-100
+                focus:scale-105 focus:bg-indigo-100">
             <h3 className="text-xl font-semibold text-gray-700 mb-2">🌐 Web Development</h3>
             <ul className="list-disc list-inside text-gray-600 space-y-1">
               <li>Flask</li>
@@ -45,7 +48,8 @@ const Skills = () => {
           </div>
 
           {/* Programming & Tools */}
-          <div className="bg-white/90 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:bg-indigo-100">
+          <div className="bg-white/90 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:bg-indigo-100 active:scale-105 active:bg-indigo-100
+                focus:scale-105 focus:bg-indigo-100">
             <h3 className="text-xl font-semibold text-gray-700 mb-2">⚙️ Programming & Tools</h3>
             <ul className="list-disc list-inside text-gray-600 space-y-1">
 

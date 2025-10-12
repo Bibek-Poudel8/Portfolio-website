@@ -65,7 +65,7 @@ const Contact = () => {
           href="https://www.facebook.com/bibek.poudel.728348"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-blue-600 transition"
+          className="hover:text-blue-600 transition active:text-blue-600 focus:text-blue-600"
         >
           <FaFacebookF size={24} />
         </a>
@@ -74,7 +74,7 @@ const Contact = () => {
           href="https://www.instagram.com/bibek_poudel345/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-pink-600 transition"
+          className="hover:text-pink-600 transition active:text-pink-600 focus:text-pink-600"
         >
           <FaInstagram size={24} />
         </a>
@@ -83,7 +83,7 @@ const Contact = () => {
           href="https://www.linkedin.com/in/bibek-poudel-497a47376/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-blue-600 transition"
+          className="hover:text-blue-600 transition active:text-blue-600 focus:text-blue-600"
         >
           <FaLinkedinIn size={24} />
         </a>
@@ -92,7 +92,7 @@ const Contact = () => {
           href="https://github.com/Bibek-Poudel8"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-gray-900 transition"
+          className="hover:text-gray-900 transition active:text-gray-900 focus:text-gray-900"
         >
           <FaGithub size={24} />
         </a>
@@ -100,7 +100,7 @@ const Contact = () => {
         {/* email */}
         <a
           href="mailto:bibekpoudel34@gmail.com"
-          className="hover:text-red-600 transition "
+          className="hover:text-red-600 transition active:text-red-600 focus:text-red-600"
         >
           <FaEnvelope size={24} />
         </a>

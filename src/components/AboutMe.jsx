@@ -38,14 +38,14 @@ const AboutMe = () => {
                 {/* for bottoms to redirect to projects and contactMe */}
                 <Link
                     to="Project"
-                    className="text-white bg-gray-800 hover:bg-black px-4 py-2 rounded transition"
+                    className="text-white bg-gray-800 hover:bg-black active:bg-black focus:bg-black px-4 py-2 rounded transition"
                 >
                     Projects
                 </Link>
 
                 <Link
                     to="Contact"
-                    className="text-white bg-gray-800 hover:bg-black px-4 py-2 rounded transition"
+                    className="text-white bg-gray-800 hover:bg-black active:bg-black focus:bg-black px-4 py-2 rounded transition"
                 >
                     ContactMe
                 </Link>

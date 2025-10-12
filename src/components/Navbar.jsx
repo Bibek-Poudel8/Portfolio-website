@@ -149,7 +149,7 @@ export default function Navbar() {
               duration={500}
               spy={true}             // track scroll position for activeClass toggle
               activeClass="bg-blue-500 text-white"
-              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer active:text-white active:bg-blue-500"
+              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer active:text-white active:bg-blue-500 focus:text-white focus:bg-blue-500"
               onClick={() => setIsOpen(false)} // close menu on click
             >
               Home
@@ -166,7 +166,7 @@ export default function Navbar() {
               duration={500}
               spy={true}             // track scroll position for activeClass toggle
               activeClass="bg-blue-500 text-white"
-              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer "
+              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer active:text-white active:bg-blue-500 focus:text-white focus:bg-blue-500"
               onClick={() => setIsOpen(false)} // close menu on click
             >
               AboutMe
@@ -181,7 +181,7 @@ export default function Navbar() {
               duration={500}
               spy={true}             // track scroll position for activeClass toggle
               activeClass="bg-blue-500 text-white"
-              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer "
+              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer active:text-white active:bg-blue-500 focus:text-white focus:bg-blue-500"
               onClick={() => setIsOpen(false)} // close menu on click
             >
               Skills
@@ -196,7 +196,7 @@ export default function Navbar() {
               duration={500}
               spy={true}             // track scroll position for activeClass toggle
               activeClass="bg-blue-500 text-white"
-              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
+              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer active:text-white active:bg-blue-500 focus:text-white focus:bg-blue-500"
               onClick={() => setIsOpen(false)} // close menu on click
             >
               Projects
@@ -211,7 +211,7 @@ export default function Navbar() {
               duration={500}
               spy={true}             // track scroll position for activeClass toggle
               activeClass="bg-blue-500 text-white"
-              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer "
+              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer active:text-white active:bg-blue-500 focus:text-white focus:bg-blue-500"
               onClick={() => setIsOpen(false)} // close menu on click
             >
               ContactMe
