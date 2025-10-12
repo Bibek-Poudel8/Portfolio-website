@@ -3,10 +3,12 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaGithub, FaEnvelope } from 're
 
 const Contact = () => {
   return (
-    <section className="min-h-screen pt-30 bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center px-6 py-16">
+    <section id='Contact' className="w-full pt-20 sm:pt-[180px] sm:min-h-screen flex flex-col items-center justify-start gap-y-6 px-4 sm:px-6 pb-10 sm:pb-10 max-w-7xl mx-auto"
+    >
+      <div className="w-full max-w-full sm:max-w-2xl bg-gradient-to-br from-blue-50 to-indigo-100 backdrop-blur-sm p-6 sm:p-10 rounded-xl shadow-lg">
       {/* Contact Card */}
-      <div className="bg-white/60 backdrop-blur-lg border border-white/30 shadow-xl rounded-xl w-full max-w-xl p-6">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">ContactMe</h2>
+      <div className="bg-white/60 backdrop-blur-lg border border-white/30 shadow-xl rounded-xl w-full max-w-md sm:max-w-xl mx-auto p-6 sm:p-8">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6">ContactMe</h2>
 
         {/* Name */}
         <div className="mb-4">
@@ -102,6 +104,9 @@ const Contact = () => {
         >
           <FaEnvelope size={24} />
         </a>
+      </div>
+
+
       </div>
     </section>
   )

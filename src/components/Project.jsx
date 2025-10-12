@@ -3,15 +3,18 @@ import { FaGithub } from 'react-icons/fa';
 
 const Project = () => {
   return (
-    <section
-      className="w-full pt-50 min-h-screen overflow-y-auto flex flex-col items-center justify-start gap-y-6 p-6 bg-gray-100">
-      <h2 className="text-5xl text-blue-500 font-bold text-center">
+    <section id="Project"
+      className="w-full pt-20 sm:pt-[180px] sm:min-h-screen flex flex-col items-center justify-start gap-y-6 p-6 pb-10 sm:pb-10 bg-white max-w-7xl mx-auto">
+      
+      <div className="w-full max-w-full sm:max-w-7xl bg-gray-200/70 backdrop-blur-sm p-10 rounded-xl shadow-lg">
+
+        <h2 className="text-5xl text-blue-500 font-bold text-center mb-6 sm:mb-10">
         My Projects
       </h2>
 
       {/*Project 1 starts*/}
 
-      <div className="w-full max-w-6xl mx-auto bg-white/90 shadow-lg rounded-xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-10 transition-transform hover:scale-[102%] hover:shadow-2xl">
+      <div className="w-full max-w-6xl mx-auto bg-white/90 shadow-lg rounded-xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-10 transition-transform hover:scale-[102%] hover:shadow-2xl mb-6 sm:mb-10">
         {/* Image section */}
         <div className="w-full lg:w-1/2 overflow-hidden rounded-lg">
 
@@ -57,7 +60,7 @@ const Project = () => {
 
       {/*Project 2 starts*/}
 
-      <div className="w-full max-w-6xl mx-auto bg-white/90 shadow-lg rounded-xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-10 transition-transform hover:scale-[102%] hover:shadow-2xl">
+      <div className="w-full max-w-6xl mx-auto bg-white/90 shadow-lg rounded-xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-10 transition-transform hover:scale-[102%] hover:shadow-2xl mb-6 sm:mb-10">
         {/* Image section */}
         <div className="w-full lg:w-1/2 overflow-hidden rounded-lg">
 
@@ -107,6 +110,9 @@ const Project = () => {
           <FaGithub size={24} />
         </a>
       </div>
+
+      </div>
+      
     </section>
 
   )
