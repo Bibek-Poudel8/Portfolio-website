@@ -4,11 +4,11 @@ import { FaGithub } from 'react-icons/fa';
 const Project = () => {
   return (
     <section id="Project"
-      className="w-full pt-20 sm:pt-[180px] sm:min-h-screen flex flex-col items-center justify-start gap-y-6 p-6 pb-10 sm:pb-10 bg-white max-w-7xl mx-auto">
+      className="w-full pt-20 sm:pt-[180px] sm:min-h-screen flex flex-col items-center justify-start gap-y-6 p-4 pb-10 sm:pb-10 bg-white max-w-7xl mx-auto">
       
-      <div className="w-full max-w-full sm:max-w-7xl bg-gray-200/70 backdrop-blur-sm p-10 rounded-xl shadow-lg">
+      <div className="w-full max-w-full sm:max-w-7xl bg-gray-200/70 backdrop-blur-sm p-5 rounded-xl shadow-lg">
 
-        <h2 className="text-5xl text-blue-500 font-bold text-center mb-6 sm:mb-10">
+        <h2 className="text-5xl text-blue-500 font-bold text-center mb-8 sm:mb-10">
         My Projects
       </h2>
 
