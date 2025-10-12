@@ -14,7 +14,9 @@ const Project = () => {
 
       {/*Project 1 starts*/}
 
-      <div className="w-full max-w-6xl mx-auto bg-white/90 shadow-lg rounded-xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-10 transition-transform hover:scale-[102%] hover:shadow-2xl mb-6 sm:mb-10">
+      <div 
+      tabIndex={0}
+      className="w-full max-w-6xl mx-auto bg-white/90 shadow-lg rounded-xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-10 transition-transform hover:scale-[102%] hover:shadow-2xl mb-6 sm:mb-10 active:scale-[102%] active:shadow-2xl focus:scale-[102%] focus:shadow-2xl">
         {/* Image section */}
         <div className="w-full lg:w-1/2 overflow-hidden rounded-lg">
 
