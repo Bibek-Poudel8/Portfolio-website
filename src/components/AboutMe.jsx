@@ -1,13 +1,14 @@
 import React from 'react'
 import { FaFacebook } from "react-icons/fa";
-import { Link, NavLink } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
+import { Link } from 'react-scroll';
 
 const AboutMe = () => {
     return (
         <section id='AboutMe'
 
-            className="pt-[185px] sm:pt-[200px] px-4 sm:px-10 w-full flex flex-col lg:flex-row py-20 justify-center items-center 
-                    max-w-7xl mx-auto min-h-screen gap-10 ">
+            className="pt-30 sm:pt-[200px] pb-16 sm:pb-20 px-4 sm:px-10 w-full flex flex-col lg:flex-row justify-center items-center 
+             max-w-7xl mx-auto sm:min-h-screen gap-10 scroll-mt-24">
 
 
             <div className="flex flex-col justify-center items-center gap-6 px-4 sm:px-6 
@@ -35,19 +36,19 @@ const AboutMe = () => {
 
 
                 {/* for bottoms to redirect to projects and contactMe */}
-                <NavLink
-                    to="/Project"
+                <Link
+                    to="Project"
                     className="text-white bg-gray-800 hover:bg-black px-4 py-2 rounded transition"
                 >
                     Projects
-                </NavLink>
+                </Link>
 
-                <NavLink
-                    to="/Contact"
+                <Link
+                    to="Contact"
                     className="text-white bg-gray-800 hover:bg-black px-4 py-2 rounded transition"
                 >
                     ContactMe
-                </NavLink>
+                </Link>
             </div>
 
 

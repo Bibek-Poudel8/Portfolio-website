@@ -2,7 +2,10 @@ import React from 'react'
 
 const Skills = () => {
   return (
-    <section id='Skills' className=" pt-[170px] sm:pt-[20px] w-full min-h-screen flex items-center justify-center px-3 ">
+    <section id='Skills' 
+      className="pt-20 sm:pt-[180px] pb-16 sm:pb-20 px-4 sm:px-10 w-full flex flex-col 
+             justify-center items-center max-w-7xl mx-auto sm:min-h-screen gap-10 scroll-mt-24">
+      
       <div className="w-full max-w-5xl bg-gray-200/70 backdrop-blur-sm p-10 rounded-xl shadow-lg">
         <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 ">Skills</h2>
 
@@ -45,7 +48,7 @@ const Skills = () => {
           <div className="bg-white/90 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:bg-indigo-100">
             <h3 className="text-xl font-semibold text-gray-700 mb-2">⚙️ Programming & Tools</h3>
             <ul className="list-disc list-inside text-gray-600 space-y-1">
-              
+
               <li>Git, Github</li>
               <li>Jupyter Notebook</li>
               <li>Google Colab</li>
