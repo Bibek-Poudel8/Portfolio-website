@@ -6,10 +6,7 @@ import { useEffect, useRef } from "react";
 
 export default function Navbar() {
 
-const [active, setActive] = useState(false);
- const handleClick = () => {
-    setActive(!active);
-  };
+const [pressed, setPressed] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -69,12 +66,16 @@ const [active, setActive] = useState(false);
               spy={true}
               activeClass="bg-blue-500 text-white"
               className={`
-                    text-base px-4 py-2 transition rounded-full cursor-pointer text-black
-                    hover:text-white hover:bg-blue-500
-                    ${active ? "bg-blue-500 text-white" : ""}
-                  `}
-                  onClick={handleClick}
-                  >
+        text-base px-4 py-2 transition rounded-full cursor-pointer text-black
+        hover:text-white hover:bg-blue-500
+        ${pressed ? "bg-blue-500 text-white" : ""}
+      `}
+      onMouseDown={() => setPressed(true)}
+      onMouseUp={() => setPressed(false)}
+      onMouseLeave={() => setPressed(false)}
+      onTouchStart={() => setPressed(true)}
+      onTouchEnd={() => setPressed(false)}
+    >
               Home
             </Link>
           </li>
