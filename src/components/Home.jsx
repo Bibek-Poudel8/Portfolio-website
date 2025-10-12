@@ -3,10 +3,10 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaGithub, FaEnvelope } from 're
 
 const Home = () => {
   return (
-    <div className='min-h-screen flex flex-col'>
-      <section
+    <div id='Home' className='min-h-screen flex flex-col'>
+      <section 
         className="pt-[300px] sm:pt-[280px] px-4 sm:px-8 w-full flex flex-col 
-             justify-center items-center mb-16 max-w-5xl mx-auto gap-8 sm:gap-12">
+             justify-center items-center mb-16 max-w-5xl mx-auto gap-8 sm:gap-12 ">
         <div className="flex-1 flex flex-col justify-center items-center gap-4 sm:gap-6 text-center">
           <div>
 

@@ -1,11 +1,41 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi"; // Hamburger and close icons
+import { Link } from 'react-scroll'
+import { useEffect, useRef } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const [showNav, setShowNav] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    function handleScroll() {
+      const currentScrollY = window.scrollY;
+
+      if (window.innerWidth < 640) { // small devices breakpoint (sm: 640px)
+        if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
+          // scrolling down
+          setShowNav(false);
+        } else {
+          // scrolling up
+          setShowNav(true);
+        }
+      } else {
+        // always show on larger screens
+        setShowNav(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <nav className={`max-w-5xl mx-auto mt-4 px-4 sm:px-10 py-3
@@ -14,7 +44,8 @@ export default function Navbar() {
                 border border-white/30
                 bg-neutral-200/60 backdrop-blur-md
                 shadow-lg text-black
-                 transition-[opacity,transform] duration-300`}>
+                 transition-[opacity,transform] duration-300
+                 ${showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"}`}>
       <div className="flex items-center justify-between w-full">
         {/* Text section */}
 
@@ -24,74 +55,79 @@ export default function Navbar() {
 
         <ul className="hidden lg:flex items-center gap-4">
           <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 ${
-                  isActive ? "bg-blue-500 text-white" : "text-black"
-                }`
-              }
+            <Link
+              to="Home" // ID of the section
+              smooth={true}
+              offset={-80} // Adjust based on your navbar height
+              duration={500}
+              spy={true}
+              activeClass="bg-blue-500 text-white"
+              className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
             >
               Home
-            </NavLink>
+            </Link>
           </li>
 
           <li>
-            <NavLink
-              to="/AboutMe"
-              className={({ isActive }) =>
-                `text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 ${
-                  isActive ? "bg-blue-500 text-white" : "text-black"
-                }`
-              }
+            <Link
+              to="AboutMe" // ID of the section
+              smooth={true}
+              offset={-80} // Adjust based on your navbar height
+              duration={500}
+              spy={true}
+              activeClass="bg-blue-500 text-white"
+              className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
             >
               AboutMe
-            </NavLink>
+            </Link>
           </li>
 
           <li>
-            <NavLink
-              to="/Skills"
-              className={({ isActive }) =>
-                `text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 ${
-                  isActive ? "bg-blue-500 text-white" : "text-black"
-                }`
-              }
+            <Link
+              to="Skills" // ID of the section
+              smooth={true}
+              offset={-80} // Adjust based on your navbar height
+              duration={500}
+              spy={true}
+              activeClass="bg-blue-500 text-white"
+              className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
             >
               Skills
-            </NavLink>
+            </Link>
           </li>
 
           <li>
-            <NavLink
-              to="/Project"
-              className={({ isActive }) =>
-                `text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 ${
-                  isActive ? "bg-blue-500 text-white" : "text-black"
-                }`
-              }
+            <Link
+              to="Project" // ID of the section
+              smooth={true}
+              offset={-80} // Adjust based on your navbar height
+              duration={500}
+              spy={true}
+              activeClass="bg-blue-500 text-white"
+              className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
             >
               Projects
-            </NavLink>
+            </Link>
           </li>
 
           <li>
-            <NavLink
-              to="/Contact"
-              className={({ isActive }) =>
-                `text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 ${
-                  isActive ? "bg-blue-500 text-white" : "text-black"
-                }`
-              }
+            <Link
+              to="Contact" // ID of the section
+              smooth={true}
+              offset={-80} // Adjust based on your navbar height
+              duration={500}
+              spy={true}
+              activeClass="bg-blue-500 text-white"
+              className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
             >
               ContactMe
-            </NavLink>
+            </Link>
           </li>
-          
+
         </ul>
 
         {/* Mobile Menu Button */}
-        
+
         <button
           onClick={toggleMenu}
           className="lg:hidden text-2xl text-black"
@@ -105,75 +141,80 @@ export default function Navbar() {
       {isOpen && (
         <ul className="lg:hidden mt-4 flex flex-col gap-2 items-center">
           <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 ${
-                  isActive ? "bg-blue-500 text-white" : "text-black"
-                }`
-              }
+            <Link
+              to="Home"
+              smooth={true}
+              offset={-80}           // adjust based on your navbar height
+              duration={500}
+              spy={true}             // track scroll position for activeClass toggle
+              activeClass="bg-blue-500 text-white"
+              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
               onClick={() => setIsOpen(false)} // close menu on click
             >
               Home
-            </NavLink>
+            </Link>
           </li>
-          
-           
 
-           <li>
-            <NavLink
-              to="/AboutMe"
-              className={({ isActive }) =>
-                `block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 ${
-                  isActive ? "bg-blue-500 text-white" : "text-black"
-                }`
-              }
+
+
+          <li>
+            <Link
+              to="AboutMe"
+              smooth={true}
+              offset={-80}           // adjust based on your navbar height
+              duration={500}
+              spy={true}             // track scroll position for activeClass toggle
+              activeClass="bg-blue-500 text-white"
+              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
               onClick={() => setIsOpen(false)} // close menu on click
             >
               AboutMe
-            </NavLink>
+            </Link>
           </li>
 
-           <li>
-            <NavLink
-              to="/Skills"
-              className={({ isActive }) =>
-                `block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 ${
-                  isActive ? "bg-blue-500 text-white" : "text-black"
-                }`
-              }
+          <li>
+            <Link
+              to="Skills"
+              smooth={true}
+              offset={-80}           // adjust based on your navbar height
+              duration={500}
+              spy={true}             // track scroll position for activeClass toggle
+              activeClass="bg-blue-500 text-white"
+              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
               onClick={() => setIsOpen(false)} // close menu on click
             >
               Skills
-            </NavLink>
+            </Link>
           </li>
 
-           <li>
-            <NavLink
-              to="/Project"
-              className={({ isActive }) =>
-                `block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 ${
-                  isActive ? "bg-blue-500 text-white" : "text-black"
-                }`
-              }
+          <li>
+            <Link
+              to="Project"
+              smooth={true}
+              offset={-80}           // adjust based on your navbar height
+              duration={500}
+              spy={true}             // track scroll position for activeClass toggle
+              activeClass="bg-blue-500 text-white"
+              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
               onClick={() => setIsOpen(false)} // close menu on click
             >
               Projects
-            </NavLink>
+            </Link>
           </li>
 
-           <li>
-            <NavLink
-              to="/Contact"
-              className={({ isActive }) =>
-                `block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 ${
-                  isActive ? "bg-blue-500 text-white" : "text-black"
-                }`
-              }
+          <li>
+            <Link
+              to="Contact"
+              smooth={true}
+              offset={-80}           // adjust based on your navbar height
+              duration={500}
+              spy={true}             // track scroll position for activeClass toggle
+              activeClass="bg-blue-500 text-white"
+              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
               onClick={() => setIsOpen(false)} // close menu on click
             >
               ContactMe
-            </NavLink>
+            </Link>
           </li>
         </ul>
       )}

@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaGithub, FaEnvelope } from 're
 
 const Contact = () => {
   return (
-    <section className="min-h-screen pt-30 bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center px-6 py-16">
+    <section id='Contact' className="min-h-screen pt-30 bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center px-6 py-16 ">
       {/* Contact Card */}
       <div className="bg-white/60 backdrop-blur-lg border border-white/30 shadow-xl rounded-xl w-full max-w-xl p-6">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">ContactMe</h2>

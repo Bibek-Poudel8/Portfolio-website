@@ -2,9 +2,9 @@ import React from 'react'
 
 const Skills = () => {
   return (
-    <section className=" pt-[170px] sm:pt-[20px] w-full min-h-screen flex items-center justify-center px-3">
+    <section id='Skills' className=" pt-[170px] sm:pt-[20px] w-full min-h-screen flex items-center justify-center px-3 ">
       <div className="w-full max-w-5xl bg-gray-200/70 backdrop-blur-sm p-10 rounded-xl shadow-lg">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">Skills</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 ">Skills</h2>
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* Machine Learning */}

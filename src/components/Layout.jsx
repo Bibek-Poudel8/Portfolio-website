@@ -3,6 +3,9 @@ import Navbar from "./Navbar"
 import Home from "./Home"
 import AboutMe from "./AboutMe"
 import Footer from "./Footer"
+import Skills from "./Skills"
+import Project from "./Project"
+import Contact from "./Contact"
 
 
 function Layout() {
@@ -10,10 +13,14 @@ function Layout() {
 
   return (
     <>
+    
     <Navbar/>
     
-    
-    <Outlet/>
+    <Home/>
+    <AboutMe/>
+    <Skills/>
+    <Project/>
+    <Contact/>
     <Footer />
       
     </>

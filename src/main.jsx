@@ -20,26 +20,26 @@ import { createHashRouter } from 'react-router-dom'
 const router = createHashRouter([
     {
     path: "/",
-    element: <Layout />,
-    children:[
-      {path:"/",
-      element:<Home/>},
+    element: <Layout />
+    // children:[
+    //   {path:"/",
+    //   element:<Home/>},
      
-      {
-        path:"/AboutMe",
-        element:<AboutMe/>
-      },
-      {
-        path:"/Skills",
-        element:<Skills/>
-      },{
-        path:"/Project",
-        element:<Project/>
-      },{
-        path:"/Contact",
-        element:<Contact/>
-      }]
-    }
+    //   {
+    //     path:"/AboutMe",
+    //     element:<AboutMe/>
+    //   },
+    //   {
+    //     path:"/Skills",
+    //     element:<Skills/>
+    //   },{
+    //     path:"/Project",
+    //     element:<Project/>
+    //   },{
+    //     path:"/Contact",
+    //     element:<Contact/>
+    //   }]
+     }
   ])
   
 

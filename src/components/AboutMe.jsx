@@ -4,10 +4,10 @@ import { Link, NavLink } from 'react-router-dom';
 
 const AboutMe = () => {
     return (
-        <section
+        <section id='AboutMe'
 
             className="pt-[185px] sm:pt-[200px] px-4 sm:px-10 w-full flex flex-col lg:flex-row py-20 justify-center items-center 
-                    max-w-7xl mx-auto min-h-screen gap-10">
+                    max-w-7xl mx-auto min-h-screen gap-10 ">
 
 
             <div className="flex flex-col justify-center items-center gap-6 px-4 sm:px-6 

@@ -3,9 +3,9 @@ import { FaGithub } from 'react-icons/fa';
 
 const Project = () => {
   return (
-    <section
-      className="w-full pt-50 min-h-screen overflow-y-auto flex flex-col items-center justify-start gap-y-6 p-6 bg-gray-100">
-      <h2 className="text-5xl text-blue-500 font-bold text-center">
+    <section id="Project"
+      className="w-full pt-50 min-h-screen overflow-y-auto flex flex-col items-center justify-start gap-y-6 p-6 bg-gray-100 ">
+      <h2 className="text-5xl text-blue-500 font-bold text-center ">
         My Projects
       </h2>
 
