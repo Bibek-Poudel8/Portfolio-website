@@ -5,6 +5,12 @@ import { Link } from 'react-scroll'
 import { useEffect, useRef } from "react";
 
 export default function Navbar() {
+
+const [active, setActive] = useState(false);
+ const handleClick = () => {
+    setActive(!active);
+  };
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -62,8 +68,13 @@ export default function Navbar() {
               duration={500}
               spy={true}
               activeClass="bg-blue-500 text-white"
-              className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
-            >
+              className={`
+                    text-base px-4 py-2 transition rounded-full cursor-pointer text-black
+                    hover:text-white hover:bg-blue-500
+                    ${active ? "bg-blue-500 text-white" : ""}
+                  `}
+                  onClick={handleClick}
+                  >
               Home
             </Link>
           </li>
