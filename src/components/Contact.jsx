@@ -100,7 +100,7 @@ const Contact = () => {
         {/* email */}
         <a
           href="mailto:bibekpoudel34@gmail.com"
-          className="hover:text-red-600 transition ml-4"
+          className="text-black hover:text-red-600 focus:text-red-600 active:text-red-600 transition-colors duration-300 ml-4"
         >
           <FaEnvelope size={24} />
         </a>
