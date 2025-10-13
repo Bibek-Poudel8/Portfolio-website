@@ -39,11 +39,10 @@ const Skills = () => {
                 focus:scale-105 focus:bg-indigo-100">
             <h3 className="text-xl font-semibold text-gray-700 mb-2">🌐 Web Development</h3>
             <ul className="list-disc list-inside text-gray-600 space-y-1">
-              <li>Flask</li>
-              <li>Django</li>
               <li>HTML, CSS, JavaScript</li>
-              <li>Node.js</li>
-              <li>SQl</li>
+              <li>Flask, Django</li>
+              <li>Express.js, Node.js, React</li>
+              <li>SQl,MongoDB</li>
             </ul>
           </div>
 
