@@ -62,7 +62,7 @@ const Contact = () => {
 
         {/* Facebook */}
         <a
-          href="https://www.facebook.com/bibek.poudel.728348"
+          href="https://www.facebook.com/pbibek8/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-blue-600 transition active:text-blue-600 focus:text-blue-600"
@@ -71,7 +71,7 @@ const Contact = () => {
         </a>
         {/* Insta */}
         <a
-          href="https://www.instagram.com/bibek_poudel345/"
+          href="https://www.instagram.com/pbibek8/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-pink-600 transition active:text-pink-600 focus:text-pink-600"
@@ -80,7 +80,7 @@ const Contact = () => {
         </a>
         {/* linkedin */}
         <a
-          href="https://www.linkedin.com/in/bibek-poudel-497a47376/"
+          href="https://www.linkedin.com/in/pbibek8/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-blue-600 transition active:text-blue-600 focus:text-blue-600"
