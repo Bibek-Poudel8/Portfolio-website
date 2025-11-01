@@ -6,7 +6,7 @@ import Footer from "./Footer"
 import Skills from "./Skills"
 import Project from "./Project"
 import Contact from "./Contact"
-
+import { useEffect } from "react"
 
 function Layout() {
   
