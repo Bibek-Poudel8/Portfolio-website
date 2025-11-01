@@ -10,6 +10,14 @@ import Contact from "./Contact"
 
 function Layout() {
   
+  // Scroll to section if URL has a hash
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash) {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
 
   return (
     <>
