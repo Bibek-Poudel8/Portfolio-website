@@ -63,6 +63,9 @@ export default function Navbar() {
               offset={-80} // Adjust based on your navbar height
               duration={500}
               spy={true}
+                onSetActive={() => {
+             window.history.replaceState(null, null, " ");
+              }}
               activeClass="bg-blue-500 text-white"
               className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer">
               Home
@@ -76,6 +79,9 @@ export default function Navbar() {
               offset={-80} // Adjust based on your navbar height
               duration={500}
               spy={true}
+                onSetActive={() => {
+          window.history.replaceState(null, null, "#AboutMe");
+            }}
               activeClass="bg-blue-500 text-white"
               className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
             >
@@ -90,6 +96,9 @@ export default function Navbar() {
               offset={-80} // Adjust based on your navbar height
               duration={500}
               spy={true}
+                onSetActive={() => {
+              window.history.replaceState(null, null, "#Skills");
+            }}
               activeClass="bg-blue-500 text-white"
               className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
             >
@@ -104,6 +113,9 @@ export default function Navbar() {
               offset={-80} // Adjust based on your navbar height
               duration={500}
               spy={true}
+                onSetActive={() => {
+    window.history.replaceState(null, null, "#Project");
+  }}
               activeClass="bg-blue-500 text-white"
               className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
             >
@@ -118,6 +130,9 @@ export default function Navbar() {
               offset={-80} // Adjust based on your navbar height
               duration={500}
               spy={true}
+                onSetActive={() => {
+    window.history.replaceState(null, null, "#Contact");
+  }}
               activeClass="bg-blue-500 text-white"
               className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
             >
