@@ -20,7 +20,8 @@ import { createHashRouter } from 'react-router-dom'
 const router = createHashRouter([
     {
     path: "/",
-    element: <Layout />
+    element: <Layout />,
+    errorElement: <Layout />
     // children:[
     //   {path:"/",
     //   element:<Home/>},
