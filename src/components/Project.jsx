@@ -1,128 +1,108 @@
-import React from 'react'
-import { FaGithub } from 'react-icons/fa';
+import Image from 'next/image'
+import { FaGithub } from 'react-icons/fa'
+import { projects, webProjectsSummary } from './content'
 
 const Project = () => {
   return (
-    <section id="Project"
-      className="w-full pt-20 sm:pt-[180px] sm:min-h-screen flex flex-col items-center justify-start gap-y-6 p-4 pb-10 sm:pb-10 bg-white max-w-7xl mx-auto">
-      
-      <div className="w-full max-w-full sm:max-w-7xl bg-gray-200/70 backdrop-blur-sm p-5 sm:p-15 rounded-xl shadow-lg">
-
-        <h2 className="text-5xl text-blue-500 font-bold text-center mb-8 sm:mb-10">
-        My Projects
-      </h2>
-
-      {/*Project 1 starts*/}
-
-      <div className="w-full max-w-6xl mx-auto bg-white/90 shadow-lg rounded-xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-10 transition-transform
-             hover:scale-[102%] hover:shadow-2xl
-             active:scale-[102%] active:shadow-2xl
-             focus:scale-[102%] focus:shadow-2xl
-             mb-6 sm:mb-10">
-        {/* Image section */}
-        <div className="w-full lg:w-1/2 overflow-hidden rounded-lg">
-
-          <img
-            src="/Projectmovie_Output_3.png"
-            alt="ProjectMovie"
-            className="w-full h-full object-cover rounded-lg hover:opacity-90 transition"
-          />
-
-        </div>
-
-        {/* Content section */}
-        <div className="w-full lg:w-1/2 flex flex-col gap-4 text-center lg:text-left">
-          <h3 className="text-2xl lg:text-3xl font-bold text-gray-800">Movie recommender System</h3>
-          <p className="text-gray-600">
-            Built a Movie Recommender System.<br />
-            - Used Tmdb movie dataset<br />
-            - Used library like Numpy, Pandas, Nltk for preprocessing the data set.<br />
-            - Used SK learn to create ML model for recommendation.<br />
-            - Created frontend using Streamlit and deployed on Render.<br />
-          </p>
-          <div className="flex gap-4 justify-center lg:justify-start">
-            <a
-              href="https://github.com/Bibek-Poudel8/Movie-Recommender-System"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white bg-gray-800 hover:bg-black px-4 py-2 rounded transition"
+    <section className="section-shell py-16 sm:py-24">
+      <div className="glass-card p-6 sm:p-10">
+        <h2 className="section-title text-center">Selected Projects</h2>
+        <p className="mx-auto mt-4 max-w-2xl text-center text-slate-600">
+          A few projects that show my work in recommendation systems and retrieval-based applications.
+        </p>
+        <div className="mt-10 space-y-6">
+          {projects.map((project) => (
+            <article
+              key={project.title}
+              className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl md:grid-cols-2 md:p-8"
             >
-              View GitHub
-            </a>
-            <a
-              href="https://bibek-movie-recommender-system.onrender.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded transition"
-            >
-              Live Demo
-            </a>
-          </div>
+              <div className="overflow-hidden rounded-2xl border border-slate-100">
+                <Image
+                  src={project.image}
+                  alt={project.imageAlt}
+                  width={960}
+                  height={540}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              <div>
+                <h3 className="font-display text-2xl font-semibold text-slate-800">
+                  {project.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-slate-600">{project.description}</p>
+                <ul className="mt-4 space-y-2 text-slate-600">
+                  {project.bullets.map((bullet) => (
+                    <li key={bullet} className="flex gap-2">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-sunrise" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 rounded-xl bg-slate-50 p-3 text-sm text-slate-700">
+                  <span className="font-semibold">Impact:</span> {project.impact}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-900"
+                  >
+                    View GitHub
+                  </a>
+                  {project.live ? (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-cyanwave px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-cyan-700"
+                    >
+                      Live Demo
+                    </a>
+                  ) : null}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-10 flex items-center justify-center gap-3 text-slate-600">
+          <span className="font-medium">Explore all other projects</span>
+          <a
+            href="https://github.com/Bibek-Poudel8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-slate-300 bg-white p-2.5 transition hover:border-slate-400 hover:text-ink"
+            aria-label="GitHub profile"
+          >
+            <FaGithub size={18} />
+          </a>
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 className="font-display text-xl font-semibold text-slate-800">Other Web Development Work</h3>
+          <ul className="mt-4 space-y-2 text-slate-600">
+            {webProjectsSummary.map((item) => (
+              <li key={item} className="flex gap-2">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-cyanwave" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-
-
-      {/*Project 2 starts*/}
-
-      <div className="w-full max-w-6xl mx-auto bg-white/90 shadow-lg rounded-xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-10 transition-transform
-             hover:scale-[102%] hover:shadow-2xl
-             active:scale-[102%] active:shadow-2xl
-             focus:scale-[102%] focus:shadow-2xl
-             mb-6 sm:mb-10">
-        {/* Image section */}
-        <div className="w-full lg:w-1/2 overflow-hidden rounded-lg">
-
-          <img
-            src="/ProjectRag-Output.png"
-            alt="ProjectRAG"
-            className="w-full h-full object-cover rounded-lg hover:opacity-90 transition"
-          />
-
-        </div>
-
-        {/* Content section */}
-        <div className="w-full lg:w-1/2 flex flex-col gap-4 text-center lg:text-left">
-          <h3 className="text-2xl lg:text-3xl font-bold text-gray-800">Rag AI Teaching Assistant</h3>
-          <p className="text-gray-600">
-            Created a Rag-based teaching assistant which helps to extract meaningful information from videos that it is trained on.<br />
-            - This context-aware system can guide users with queries related to those videos that it is trained on.<br />
-            - TechStack Used : OpenAI whisper,BGE-M3,SK-learn,LLM(Llama 3.2)
-
-          </p>
-          <div className="flex gap-4 justify-center lg:justify-start">
-            <a
-              href="https://github.com/Bibek-Poudel8/Rag-AI-Teaching-Assistant"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white bg-gray-800 hover:bg-black px-4 py-2 rounded transition"
-            >
-              View GitHub
-            </a>
-
-          </div>
-        </div>
-      </div>
-      {/*Start third project from here*/}
-
-
-      {/* More Project github section */}
-
-      <div className='mt-0 lg:mt-12 flex items-center justify-center gap-4 text-gray-600'>
-        <span className="text-lg font-semibold text-gray-800">For all other projects | </span>
-        <a
-          href="https://github.com/Bibek-Poudel8"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-gray-900 active:text-gray-900 focus:text-gray-900 transition"
-        >
-          <FaGithub size={24} />
-        </a>
-      </div>
-
-      </div>
-      
     </section>
-
   )
 }
 

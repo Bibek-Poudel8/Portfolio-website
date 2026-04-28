@@ -1,60 +1,108 @@
-import React from 'react'
-import { FaFacebook } from "react-icons/fa";
-import {  NavLink } from 'react-router-dom';
-import { Link } from 'react-scroll';
+import Image from 'next/image'
+import Link from 'next/link'
+import { aboutStory, education, expertiseAreas, interests, workExperience } from './content'
 
 const AboutMe = () => {
     return (
-        <section id='AboutMe'
+        <section className="section-shell py-16 sm:py-24">
+            <div className="grid items-start gap-8 md:grid-cols-[1.05fr_0.95fr]">
+                <article className="glass-card p-6 sm:p-10">
+                    <h2 className="section-title text-cyanwave">About Me</h2>
+                    <p className="mt-5 leading-relaxed text-slate-700">{aboutStory.intro}</p>
+                    <p className="mt-4 leading-relaxed text-slate-700">{aboutStory.detail}</p>
 
-            className="pt-30 sm:pt-[200px] pb-16 sm:pb-20 px-4 sm:px-10 w-full flex flex-col lg:flex-row justify-center items-center 
-             max-w-7xl mx-auto sm:min-h-screen gap-10 scroll-mt-24">
+                    <div className="mt-7">
+                        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">What I Focus On</p>
+                        <ul className="mt-3 space-y-2 text-slate-700">
+                            {expertiseAreas.map((area) => (
+                                <li key={area} className="flex gap-2">
+                                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-cyanwave" />
+                                    <span>{area}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
 
+                    <div className="mt-8 flex flex-wrap gap-3">
+                        <Link
+                            href="/projects"
+                            className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-900"
+                        >
+                            Explore Projects
+                        </Link>
+                        <Link
+                            href="/contact"
+                            className="rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-slate-400"
+                        >
+                            Work With Me
+                        </Link>
+                    </div>
+                </article>
 
-            <div className="flex flex-col justify-center items-center gap-6 px-4 sm:px-6 
-                  bg-gray-200 text-black p-6 sm:p-8 rounded-xl shadow-lg w-full sm:w-3/4 max-w-2xl">
-                <div>
-                    <h2 className="text-center text-blue-500 text-3xl sm:text-4xl lg:text-5xl font-bold">
-                        About Me :
-                    </h2>
-                </div>
-                <p className='text-center text-sm sm:text-base leading-relaxed'>
-                    I am Bibek Poudel , a tech enthusiast and CS student, who wants to build end-to-end AI products that bring positive impact on society.
-                </p>
+                <aside className="glass-card p-8 text-center">
+                    <div className="mx-auto h-48 w-48 overflow-hidden rounded-full border-4 border-white shadow-lg">
+                        <Image
+                            src="/Bibek Poudel02_pp.jpg"
+                            alt="Portrait of Bibek Poudel"
+                            width={192}
+                            height={192}
+                            className="h-full w-full object-cover object-top"
+                            priority
+                        />
+                    </div>
+                    <p className="mt-6 text-sm uppercase tracking-[0.2em] text-slate-500">Professional Mission</p>
+                    <p className="mt-2 text-lg font-semibold text-slate-700">
+                        Build useful products across AI and modern web development that solve practical problems.
+                    </p>
 
-                <p className='text-center text-sm sm:text-base leading-relaxed'>
-                    I have strong expertise in Data analytics, Data science, Machine learning, and Deep learning. I have a basic understanding of web development that helps me deploy those projects I have created. I enjoy creating products that help people in their day-to-day life.
-                </p>
-
+                    <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm">
+                        <p className="text-sm font-semibold text-slate-700">Currently Exploring</p>
+                        <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                            Advanced retrieval systems, scalable web architecture, and production-ready full stack workflows.
+                        </p>
+                    </div>
+                </aside>
             </div>
-                    {/* image part on Aboutme */}
 
-            <div className="flex flex-col items-center space-y-4  p-4 rounded">
-                <div className='w-44 h-44 rounded-full backdrop-blur-sm bg-gray-900/10 shadow-lg flex items-center justify-center'>
-                    <img src='/Bibek Poudel02_pp.jpg' alt='about' className="w-40 h-40 object-cover object-top rounded-full shadow-md bg-gray-400/25"></img>
-                </div>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+                <article className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm sm:p-8">
+                    <h3 className="font-display text-2xl font-semibold text-slate-800">Education</h3>
+                    <div className="mt-4 space-y-4">
+                        {education.map((item) => (
+                            <div key={item.title} className="rounded-2xl border border-slate-200 bg-white p-4">
+                                <p className="text-sm font-semibold text-slate-800">{item.title}</p>
+                                <p className="mt-1 text-sm text-slate-600">{item.detail}</p>
+                            </div>
+                        ))}
+                    </div>
+                </article>
 
+                <article className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm sm:p-8">
+                    <h3 className="font-display text-2xl font-semibold text-slate-800">Current Interests</h3>
+                    <ul className="mt-4 space-y-2 text-slate-700">
+                        {interests.map((item) => (
+                            <li key={item} className="flex gap-2">
+                                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-sunrise" />
+                                <span>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </article>
 
-                {/* for bottoms to redirect to projects and contactMe */}
-                <Link
-                    to="Project"
-                    className="text-white bg-gray-800 hover:bg-black active:bg-black focus:bg-black px-4 py-2 rounded transition"
-                >
-                    Projects
-                </Link>
-
-                <Link
-                    to="Contact"
-                    className="text-white bg-gray-800 hover:bg-black active:bg-black focus:bg-black px-4 py-2 rounded transition"
-                >
-                    ContactMe
-                </Link>
+                <article className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm sm:p-8">
+                    <h3 className="font-display text-2xl font-semibold text-slate-800">Professional Experience</h3>
+                    <div className="mt-4 space-y-4">
+                        {workExperience.map((item) => (
+                            <div key={item.role} className="rounded-2xl border border-slate-200 bg-white p-4">
+                                <p className="text-sm font-semibold text-slate-800">{item.role}</p>
+                                <p className="mt-1 text-sm text-slate-600">{item.detail}</p>
+                            </div>
+                        ))}
+                    </div>
+                </article>
             </div>
-
-
         </section>
     )
 }
-
 
 export default AboutMe

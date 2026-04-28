@@ -1,254 +1,109 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi"; // Hamburger and close icons
-import { Link } from 'react-scroll'
-import { useEffect, useRef } from "react";
+"use client"
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useEffect, useRef, useState } from 'react'
+import { FiMenu, FiX } from 'react-icons/fi'
+import { navItems } from './content'
 
 export default function Navbar() {
-
-
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => setIsOpen(!isOpen);
-
-  const [showNav, setShowNav] = useState(true);
-  const lastScrollY = useRef(0);
+  const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false)
+  const [showNav, setShowNav] = useState(true)
+  const lastScrollY = useRef(0)
 
   useEffect(() => {
     function handleScroll() {
-      const currentScrollY = window.scrollY;
+      const currentScrollY = window.scrollY
 
-      if (window.innerWidth < 640) { // small devices breakpoint (sm: 640px)
+      if (window.innerWidth < 640) {
         if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
-          // scrolling down
-          setShowNav(false);
+          setShowNav(false)
         } else {
-          // scrolling up
-          setShowNav(true);
+          setShowNav(true)
         }
       } else {
-        // always show on larger screens
-        setShowNav(true);
+        setShowNav(true)
       }
 
-      lastScrollY.current = currentScrollY;
+      lastScrollY.current = currentScrollY
     }
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll)
 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <nav className={`max-w-5xl mx-auto mt-4 px-4 sm:px-10 py-3
-                fixed left-0 right-0 z-50
-                ${isOpen ? "rounded-sm" : "rounded-full"}
-                border border-white/30
-                bg-neutral-200/60 backdrop-blur-md
-                shadow-lg text-black
-                 transition-[opacity,transform] duration-300
-                 ${showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"}`}>
-      <div className="flex items-center justify-between w-full">
-        {/* Text section */}
+    <nav
+      className={`fixed left-0 right-0 top-3 z-50 mx-auto flex w-[min(96%,72rem)] items-center justify-between rounded-full border border-white/70 bg-white/80 px-4 py-3 shadow-glass backdrop-blur-xl transition-[opacity,transform] duration-300 sm:px-6 ${
+        showNav ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
+      }`}
+    >
+      <Link href="/" className="font-display text-lg font-bold tracking-tight text-ink sm:text-2xl">
+        Bibek Poudel
+      </Link>
 
-        <h3 className="text-2xl sm:text-3xl font-bold">Bibek | Portfolio</h3>
-
-        {/* Desktop Menu */}
-
-        <ul className="hidden lg:flex items-center gap-4">
-          <li>
+      <ul className="hidden items-center gap-1 lg:flex">
+        {navItems.map((item) => (
+          <li key={item.href}>
             <Link
-              to="Home" // ID of the section
-              smooth={true}
-              offset={-80} // Adjust based on your navbar height
-              duration={500}
-              spy={true}
-                onSetActive={() => {
-             window.history.replaceState(null, null, " "); // for routes to get updated dynamically, url hashes is managed
-              }}
-              activeClass="bg-blue-500 text-white"
-              className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer">
-              Home
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="AboutMe" // ID of the section
-              smooth={true}
-              offset={-80} // Adjust based on your navbar height
-              duration={500}
-              spy={true}
-                onSetActive={() => {
-          window.history.replaceState(null, null, "#AboutMe");
-            }}
-              activeClass="bg-blue-500 text-white"
-              className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
+              href={item.href}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                pathname === item.href
+                  ? 'bg-ink text-white'
+                  : 'text-slate-700 hover:bg-slate-900 hover:text-white'
+              }`}
             >
-              AboutMe
+              {item.label}
             </Link>
           </li>
+        ))}
+      </ul>
 
-          <li>
-            <Link
-              to="Skills" // ID of the section
-              smooth={true}
-              offset={-80} // Adjust based on your navbar height
-              duration={500}
-              spy={true}
-                onSetActive={() => {
-              window.history.replaceState(null, null, "#Skills");
-            }}
-              activeClass="bg-blue-500 text-white"
-              className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
-            >
-              Skills
-            </Link>
-          </li>
+      <Link
+        href="/contact"
+        className="hidden rounded-full bg-cyanwave px-5 py-2 text-sm font-semibold text-white transition hover:bg-cyan-700 lg:inline-flex"
+      >
+        Let&apos;s Work Together
+      </Link>
 
-          <li>
-            <Link
-              to="Project" // ID of the section
-              smooth={true}
-              offset={-80} // Adjust based on your navbar height
-              duration={500}
-              spy={true}
-                onSetActive={() => {
-    window.history.replaceState(null, null, "#Project");
-  }}
-              activeClass="bg-blue-500 text-white"
-              className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
-            >
-              Projects
-            </Link>
-          </li>
+      <button
+        onClick={() => setIsOpen((prev) => !prev)}
+        className="rounded-full border border-slate-300 bg-white p-2 text-2xl text-slate-800 lg:hidden"
+        aria-label="Toggle menu"
+      >
+        {isOpen ? <FiX /> : <FiMenu />}
+      </button>
 
-          <li>
-            <Link
-              to="Contact" // ID of the section
-              smooth={true}
-              offset={-80} // Adjust based on your navbar height
-              duration={500}
-              spy={true}
-                onSetActive={() => {
-    window.history.replaceState(null, null, "#Contact");
-  }}
-              activeClass="bg-blue-500 text-white"
-              className="text-base px-4 py-2 transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer"
-            >
-              ContactMe
-            </Link>
-          </li>
-
-        </ul>
-
-        {/* Mobile Menu Button */}
-
-        <button
-          onClick={toggleMenu}
-          className="lg:hidden text-2xl text-black"
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <FiX /> : <FiMenu />}
-        </button>
-      </div>
-
-      {/* Mobile Menu Panel */}
       {isOpen && (
-        <ul className="lg:hidden mt-4 flex flex-col gap-2 items-center">
+        <ul className="absolute left-0 right-0 top-16 mx-auto w-[92%] space-y-2 rounded-2xl border border-white/70 bg-white/95 p-3 shadow-glass lg:hidden">
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className={`block rounded-xl px-4 py-2 text-center text-sm font-semibold transition ${
+                  pathname === item.href
+                    ? 'bg-ink text-white'
+                    : 'text-slate-700 hover:bg-slate-900 hover:text-white'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
           <li>
             <Link
-              to="Home"
-              smooth={true}
-              offset={-80}           // adjust based on your navbar height
-              duration={500}
-              spy={true}             // track scroll position for activeClass toggle
-              onSetActive={() => {
-             window.history.replaceState(null, null, " "); // For routes to get updated dynamically, url hashes is managed
-              }}
-              activeClass="bg-blue-500 text-white"
-              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer active:text-white active:bg-blue-500 focus:text-white focus:bg-blue-500"
-              onClick={() => setIsOpen(false)} // close menu on click
+              href="/contact"
+              className="block rounded-xl bg-cyanwave px-4 py-2 text-center text-sm font-semibold text-white"
+              onClick={() => setIsOpen(false)}
             >
-              Home
-            </Link>
-          </li>
-
-
-
-          <li>
-            <Link
-              to="AboutMe"
-              smooth={true}
-              offset={-80}           // adjust based on your navbar height
-              duration={500}
-              spy={true}             // track scroll position for activeClass toggle
-              onSetActive={() => {
-             window.history.replaceState(null, null, "#AboutMe");
-              }}
-              activeClass="bg-blue-500 text-white"
-              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer active:text-white active:bg-blue-500 focus:text-white focus:bg-blue-500"
-              onClick={() => setIsOpen(false)} // close menu on click
-            >
-              AboutMe
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="Skills"
-              smooth={true}
-              offset={-80}           // adjust based on your navbar height
-              duration={500}
-              spy={true}             // track scroll position for activeClass toggle
-              onSetActive={() => {
-             window.history.replaceState(null, null, "#Skills");
-              }}
-              activeClass="bg-blue-500 text-white"
-              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer active:text-white active:bg-blue-500 focus:text-white focus:bg-blue-500"
-              onClick={() => setIsOpen(false)} // close menu on click
-            >
-              Skills
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="Project"
-              smooth={true}
-              offset={-80}           // adjust based on your navbar height
-              duration={500}
-              spy={true}             // track scroll position for activeClass toggle
-              onSetActive={() => {
-             window.history.replaceState(null, null, "#Project");
-              }}
-              activeClass="bg-blue-500 text-white"
-              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer active:text-white active:bg-blue-500 focus:text-white focus:bg-blue-500"
-              onClick={() => setIsOpen(false)} // close menu on click
-            >
-              Projects
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="Contact"
-              smooth={true}
-              offset={-80}           // adjust based on your navbar height
-              duration={500}
-              spy={true}             // track scroll position for activeClass toggle
-              onSetActive={() => {
-             window.history.replaceState(null, null, "#Contact");
-              }}
-              activeClass="bg-blue-500 text-white"
-              className="block text-base px-4 py-2 w-full text-center transition rounded-full hover:text-white hover:bg-blue-500 text-black cursor-pointer active:text-white active:bg-blue-500 focus:text-white focus:bg-blue-500"
-              onClick={() => setIsOpen(false)} // close menu on click
-            >
-              ContactMe
+              Let&apos;s Work Together
             </Link>
           </li>
         </ul>
       )}
     </nav>
-  );
+  )
 }

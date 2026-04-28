@@ -1,67 +1,49 @@
-import React from 'react'
+import { skills, toolsAndPlatforms, } from './content'
 
 const Skills = () => {
   return (
-    <section id='Skills' 
-      className="pt-20 sm:pt-[180px] pb-16 sm:pb-20 px-4 sm:px-10 w-full flex flex-col 
-             justify-center items-center max-w-7xl mx-auto sm:min-h-screen gap-10 scroll-mt-24">
-      
-      <div className="w-full max-w-5xl bg-gray-200/70 backdrop-blur-sm p-5 rounded-xl shadow-lg">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 ">Skills</h2>
+    <section className="section-shell py-16 sm:py-24">
+      <div className="glass-card p-6 sm:p-10">
+        <h2 className="section-title text-center">Skills and Tools</h2>
+        <p className="mx-auto mt-4 max-w-2xl text-center text-slate-600">
+          This page covers the technologies I use in AI/data projects and full stack web development.
+        </p>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {/* Machine Learning */}
-          <div className="bg-white/90 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:bg-indigo-100 active:scale-105 active:bg-indigo-100
-                focus:scale-105 focus:bg-indigo-100">
-            <h3 className="text-xl font-semibold text-gray-700 mb-2">🧠 Machine Learning & Deep Learning</h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-1">
-              <li>Scikit-learn</li>
-              <li>TensorFlow</li>
-              <li>PyTorch</li>
-              <li>Keras</li>
-            </ul>
-          </div>
-
-          {/* Data Science */}
-          <div className="bg-white/90 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:bg-indigo-100 active:scale-105 active:bg-indigo-100
-                focus:scale-105 focus:bg-indigo-100">
-            <h3 className="text-xl font-semibold text-gray-700 mb-2">📊 Data Science & Analysis</h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-1">
-              <li>NumPy</li>
-              <li>Pandas</li>
-              <li>Matplotlib</li>
-              <li>Seaborn</li>
-            </ul>
-          </div>
-
-          {/* Web Development */}
-          <div className="bg-white/90 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:bg-indigo-100 active:scale-105 active:bg-indigo-100
-                focus:scale-105 focus:bg-indigo-100">
-            <h3 className="text-xl font-semibold text-gray-700 mb-2">🌐 Web Development</h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-1">
-              <li>HTML, CSS, JavaScript</li>
-              <li>Flask, Django</li>
-              <li>Express.js, Node.js, React</li>
-              <li>SQl,MongoDB</li>
-            </ul>
-          </div>
-
-          {/* Programming & Tools */}
-          <div className="bg-white/90 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:bg-indigo-100 active:scale-105 active:bg-indigo-100
-                focus:scale-105 focus:bg-indigo-100">
-            <h3 className="text-xl font-semibold text-gray-700 mb-2">⚙️ Programming & Tools</h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-1">
-
-              <li>Git, Github</li>
-              <li>Jupyter Notebook</li>
-              <li>Google Colab</li>
-            </ul>
-          </div>
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {skills.map((group, index) => (
+            <article
+              key={group.category}
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-cyanwave/30 hover:shadow-lg"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <h3 className="font-display text-xl font-semibold text-slate-800">{group.category}</h3>
+              <ul className="mt-4 space-y-2 text-slate-600">
+                {group.items.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-cyanwave" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </div>
 
-        <p className="mt-10 text-center text-sm text-gray-600 italic">
-          💡 Applied these tools in real-world AI projects and data-driven web applications.
-        </p>
+
+
+        <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 className="font-display text-xl font-semibold text-slate-800">Tools I Use Often</h3>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {toolsAndPlatforms.map((tool) => (
+              <span
+                key={tool}
+                className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-medium text-slate-700"
+              >
+                {tool}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

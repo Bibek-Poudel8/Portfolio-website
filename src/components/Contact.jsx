@@ -1,112 +1,219 @@
-import React from 'react'
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaGithub, FaEnvelope } from 'react-icons/fa';
+"use client"
+
+import { useState } from 'react'
+import { FaEnvelope, FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
+import { availability, contactDetails, contactFaq, socialLinks } from './content'
 
 const Contact = () => {
-  return (
-    <section id='Contact' className="w-full pt-20 sm:pt-[180px] sm:min-h-screen flex flex-col items-center justify-start gap-y-6 px-4 sm:px-6 pb-10 sm:pb-10 max-w-7xl mx-auto"
-    >
-      <div className="w-full max-w-full sm:max-w-2xl bg-gradient-to-br from-blue-50 to-indigo-100 backdrop-blur-sm p-6 sm:p-10 rounded-xl shadow-lg">
-      {/* Contact Card */}
-      <div className="bg-white/60 backdrop-blur-lg border border-white/30 shadow-xl rounded-xl w-full max-w-md sm:max-w-xl mx-auto p-6 sm:p-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6">ContactMe</h2>
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+    website: '',
+  })
+  const [status, setStatus] = useState({ type: 'idle', message: '' })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-        {/* Name */}
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Full Name</label>
+  const iconMap = {
+    Facebook: FaFacebookF,
+    Instagram: FaInstagram,
+    LinkedIn: FaLinkedinIn,
+    GitHub: FaGithub,
+    Email: FaEnvelope,
+  }
+
+  function handleChange(event) {
+    const { name, value } = event.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+    setStatus({ type: 'idle', message: '' })
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        setStatus({
+          type: 'error',
+          message: data?.error || 'Unable to send message right now. Please try again later.',
+        })
+        return
+      }
+
+      setStatus({ type: 'success', message: 'Message sent successfully. I will get back to you soon.' })
+      setFormData({ name: '', email: '', message: '', website: '' })
+    } catch {
+      setStatus({
+        type: 'error',
+        message: 'Network error while sending message. Please try again.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <section className="section-shell py-16 sm:py-24">
+      <div className="glass-card p-6 sm:p-10">
+        <h2 className="section-title text-center">Contact</h2>
+        <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">
+          I am open to good-fit roles and collaborations where the work quality and learning scope are strong.
+        </p>
+
+        <div className="mx-auto mt-8 grid max-w-4xl gap-4 sm:grid-cols-3">
+          {contactDetails.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              target={item.href.startsWith('mailto:') ? undefined : '_blank'}
+              rel={item.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+              className="rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">{item.label}</p>
+              <p className="mt-2 text-sm font-semibold text-slate-700">{item.value}</p>
+            </a>
+          ))}
+        </div>
+
+        <form
+          onSubmit={handleSubmit}
+          className="mx-auto mt-8 max-w-2xl space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7"
+        >
           <input
             type="text"
-            id="name"
-            placeholder="Enter your name"
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
+            name="website"
+            value={formData.website}
+            onChange={handleChange}
+            autoComplete="off"
+            tabIndex={-1}
+            className="hidden"
+            aria-hidden="true"
           />
+
+          <div>
+            <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-slate-700">
+              Full Name
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Enter your name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              minLength={2}
+              maxLength={80}
+              className="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-800 outline-none transition focus:border-cyanwave focus:ring-2 focus:ring-cyanwave/20"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-700">
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              maxLength={120}
+              className="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-800 outline-none transition focus:border-cyanwave focus:ring-2 focus:ring-cyanwave/20"
+            />
+          </div>
+          <div>
+            <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-slate-700">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Write your message..."
+              value={formData.message}
+              onChange={handleChange}
+              required
+              minLength={10}
+              maxLength={2000}
+              className="w-full resize-none rounded-xl border border-slate-300 px-4 py-2.5 text-slate-800 outline-none transition focus:border-cyanwave focus:ring-2 focus:ring-cyanwave/20"
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full rounded-xl bg-ink py-3 text-sm font-semibold text-white transition hover:bg-slate-900 disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </button>
+          {status.message ? (
+            <p
+              role="status"
+              className={`text-center text-sm ${
+                status.type === 'success' ? 'text-emerald-600' : 'text-rose-600'
+              }`}
+            >
+              {status.message}
+            </p>
+          ) : null}
+        </form>
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          {socialLinks.map((item) => {
+            const Icon = iconMap[item.label]
+
+            return (
+              <a
+                key={item.label}
+                href={item.href}
+                target={item.href.startsWith('mailto:') ? undefined : '_blank'}
+                rel={item.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                aria-label={item.label}
+                className="rounded-full border border-slate-300 bg-white p-2.5 text-slate-700 transition hover:border-slate-400 hover:text-cyanwave"
+              >
+                <Icon size={18} />
+              </a>
+            )
+          })}
         </div>
 
-        {/* Email */}
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 font-medium mb-1">Email</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter your email"
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
-          />
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <h3 className="font-display text-xl font-semibold text-slate-800">Availability</h3>
+            <ul className="mt-4 space-y-2 text-slate-600">
+              {availability.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-cyanwave" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <h3 className="font-display text-xl font-semibold text-slate-800">FAQ</h3>
+            <div className="mt-4 space-y-3">
+              {contactFaq.map((item) => (
+                <article key={item.question}>
+                  <p className="text-sm font-semibold text-slate-800">{item.question}</p>
+                  <p className="mt-1 text-sm text-slate-600">{item.answer}</p>
+                </article>
+              ))}
+            </div>
+          </section>
         </div>
-
-        {/* Message */}
-        <div className="mb-5">
-          <label htmlFor="message" className="block text-gray-700 font-medium mb-1">Message</label>
-          <textarea
-            id="message"
-            rows="4"
-            placeholder="Write your message..."
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md bg-white resize-none focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
-          ></textarea>
-        </div>
-        {/* Button */}
-        <button
-          type="submit"
-          className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-md transition duration-300"
-        >
-          Send Message
-        </button>
-        <span>May not be working at the moment.</span>
-      </div>
-
-      {/* Socials */}
-      <div className="mt-12 flex items-center justify-center gap-6 text-gray-600">
-        {/* Label */}
-        <span className="text-lg font-semibold text-gray-800">Socials |</span>
-
-        {/* Facebook */}
-        <a
-          href="https://www.facebook.com/pbibek8/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-600 transition active:text-blue-600 focus:text-blue-600"
-        >
-          <FaFacebookF size={24} />
-        </a>
-        {/* Insta */}
-        <a
-          href="https://www.instagram.com/pbibek8/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-pink-600 transition active:text-pink-600 focus:text-pink-600"
-        >
-          <FaInstagram size={24} />
-        </a>
-        {/* linkedin */}
-        <a
-          href="https://www.linkedin.com/in/pbibek8/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-600 transition active:text-blue-600 focus:text-blue-600"
-        >
-          <FaLinkedinIn size={24} />
-        </a>
-        {/* github */}
-        <a
-          href="https://github.com/Bibek-Poudel8"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-gray-900 transition active:text-gray-900 focus:text-gray-900"
-        >
-          <FaGithub size={24} />
-        </a>
-
-        {/* email */}
-        <a
-          href="mailto:bibekpoudel34@gmail.com"
-          className="hover:text-red-600 transition active:text-red-600 focus:text-red-600"
-        >
-          <FaEnvelope size={24} />
-        </a>
-      </div>
-
-
       </div>
     </section>
   )
