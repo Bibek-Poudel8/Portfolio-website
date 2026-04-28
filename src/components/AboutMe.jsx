@@ -50,9 +50,8 @@ const AboutMe = () => {
                             priority
                         />
                     </div>
-                    <p className="mt-6 text-sm uppercase tracking-[0.2em] text-slate-500">Professional Mission</p>
                     <p className="mt-2 text-lg font-semibold text-slate-700">
-                        Build useful products across AI and modern web development that solve practical problems.
+                        I want to build useful products across AI and modern web development that solve practical problems.
                     </p>
 
                     <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm">
@@ -90,7 +89,7 @@ const AboutMe = () => {
                 </article>
 
                 <article className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm sm:p-8">
-                    <h3 className="font-display text-2xl font-semibold text-slate-800">Professional Experience</h3>
+                    <h3 className="font-display text-2xl font-semibold text-slate-800">Experience</h3>
                     <div className="mt-4 space-y-4">
                         {workExperience.map((item) => (
                             <div key={item.role} className="rounded-2xl border border-slate-200 bg-white p-4">
