@@ -2,7 +2,6 @@ import Home from '../components/Home'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Home',
   description:
     'Portfolio website of Bibek Poudel showcasing AI, data science, and full stack web development experience.',
 }
