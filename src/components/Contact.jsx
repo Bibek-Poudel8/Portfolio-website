@@ -46,7 +46,7 @@ const Contact = () => {
       if (!response.ok) {
         setStatus({
           type: 'error',
-          message: data?.error || 'Unable to send message right now. Please try again later.',
+          message: 'Unable to send message right now. Please try again later.',
         })
         return
       }
@@ -56,7 +56,7 @@ const Contact = () => {
     } catch {
       setStatus({
         type: 'error',
-        message: 'Network error while sending message. Please try again.',
+        message: 'Unable to send message right now. Please try again later.',
       })
     } finally {
       setIsSubmitting(false)
