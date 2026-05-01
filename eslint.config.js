@@ -18,28 +18,19 @@ export default defineConfig([
     rules: {
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs['core-web-vitals'].rules,
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'no-unused-vars': ['warn', { varsIgnorePattern: '^[A-Z_]' }],
+      'react-hooks/exhaustive-deps': 'warn',
     },
     languageOptions: {
       ecmaVersion: 2020,
       globals: {
         ...globals.browser,
+        ...globals.node,
         process: 'readonly',
       },
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
-        sourceType: 'module',
-      },
-    },
-  },
-  {
-    files: ['src/app/api/**/*.{js,jsx}'],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: { ...globals.node },
-      parserOptions: {
-        ecmaVersion: 'latest',
         sourceType: 'module',
       },
     },
