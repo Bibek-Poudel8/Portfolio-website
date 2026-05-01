@@ -3,7 +3,7 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
 export const metadata = {
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
     default: 'Bibek Poudel | Portfolio',
     template: '%s | Bibek Poudel',
