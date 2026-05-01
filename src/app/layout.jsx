@@ -1,6 +1,7 @@
 import './globals.css'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import websiteIcon from '../assets/Website_icon.png'
 
 export const metadata = {
   metadataBase: new URL('http://localhost:3000'),
@@ -20,21 +21,21 @@ export const metadata = {
     'Nepal',
   ],
   icons: {
-    icon: '/Website_icon.png',
+    icon: websiteIcon.src,
   },
   openGraph: {
     title: 'Bibek Poudel | Portfolio',
     description:
       'Explore projects and skills in data science, machine learning, deep learning, and AI web applications.',
     type: 'website',
-    images: ['/Website_icon.png'],
+    images: [websiteIcon.src],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Bibek Poudel | Portfolio',
     description:
       'Portfolio featuring AI projects, machine learning work, and data-driven web products.',
-    images: ['/Website_icon.png'],
+    images: [websiteIcon.src],
   },
 }
 

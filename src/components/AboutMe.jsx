@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import bibekPhoto from '../assets/BibekPoudel_Photo.jpg'
 import { aboutStory, education, expertiseAreas, interests, workExperience } from './content'
 
 const AboutMe = () => {
@@ -42,7 +43,7 @@ const AboutMe = () => {
                 <aside className="glass-card p-8 text-center">
                     <div className="mx-auto h-48 w-48 overflow-hidden rounded-full border-4 border-white shadow-lg">
                         <Image
-                            src="/Bibek Poudel02_pp.jpg"
+                            src={bibekPhoto}
                             alt="Portrait of Bibek Poudel"
                             width={192}
                             height={192}

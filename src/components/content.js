@@ -1,3 +1,6 @@
+import projectMovieImage from '../assets/Projectmovie_Output_3.png'
+import projectRagImage from '../assets/ProjectRag-Output.png'
+
 export const navItems = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
@@ -219,7 +222,7 @@ export const webProjectsSummary = [
 export const projects = [
   {
     title: 'Movie Recommender System',
-    image: '/Projectmovie_Output_3.png',
+    image: projectMovieImage,
     imageAlt: 'Movie recommender system dashboard preview',
     description:
       'Movie recommendation web app using the TMDB dataset and classical machine learning techniques.',
@@ -235,7 +238,7 @@ export const projects = [
   },
   {
     title: 'RAG AI Teaching Assistant',
-    image: '/ProjectRag-Output.png',
+    image: projectRagImage,
     imageAlt: 'RAG AI teaching assistant interface preview',
     description:
       'RAG-based teaching assistant that answers questions from video-derived learning content.',
