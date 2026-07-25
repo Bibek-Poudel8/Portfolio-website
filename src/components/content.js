@@ -1,5 +1,6 @@
-import projectMovieImage from '../assets/Projectmovie_Output_3.png'
+import SeventsemprojectDashboard from '../assets/Dashboard.png'
 import projectRagImage from '../assets/ProjectRag-Output.png'
+import projectMovieImage from '../assets/Projectmovie_Output_3.png'
 
 export const navItems = [
   { label: 'Home', href: '/' },
@@ -220,6 +221,22 @@ export const webProjectsSummary = [
 ]
 
 export const projects = [
+  {
+    title: 'Machine Learning-Based Personal Finance Assistant',
+    image: SeventsemprojectDashboard,
+    imageAlt: 'Machine Learning-Based Personal Finance Assistant dashboard preview',
+    description:
+      'A Final year academic project that helps manage personal finances more intelligently and accessibly using modern web development and machine learning.',
+    bullets: [
+      'Automatically categorizes transactions with a Logistic Regression model trained on a large transactions dataset.',
+      'Predicts next month\'s spending per category using Linear Regression trained on each user\'s transaction history.',
+      'Detects unusual transactions in real time with Isolation Forest and sends immediate notifications.',
+      'Tracks budgets with automated warnings, spending analytics, recurring transaction management, and multi-format export.',
+    ],
+    impact: 'Built to make personal finance management smarter, faster, and easier to access.',
+    tags: ['Personal Finance', 'Machine Learning', 'Next.js', 'FastAPI', 'PostgreSQL'],
+    github: 'https://github.com/Bibek-Poudel8/seventh-sem-project',
+  },
   {
     title: 'Movie Recommender System',
     image: projectMovieImage,
