@@ -54,6 +54,13 @@ const Home = () => {
             >
               {heroContent.primaryCta.label}
             </Link>
+            <a
+              href="/Bibek_Poudel_CV.pdf"
+              download="Bibek_Poudel_CV.pdf"
+              className="rounded-full border border-slate-300/80 bg-white/85 px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-400 hover:bg-white"
+            >
+              Download CV
+            </a>
             <Link
               href={heroContent.secondaryCta.href}
               className="rounded-full border border-slate-300/80 bg-white/85 px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-400 hover:bg-white"
