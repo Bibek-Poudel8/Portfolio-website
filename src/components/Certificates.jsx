@@ -18,12 +18,26 @@ function getCertificatePreview(link) {
 const previewShellClassName = 'relative flex h-full w-full items-center justify-center bg-white p-4'
 const previewContentClassName = 'h-full w-full max-w-full max-h-full object-contain'
 
+function getAbsoluteCertificateLink(link) {
+  if (typeof window === 'undefined') {
+    return link
+  }
+
+  try {
+    return new URL(link, window.location.origin).href
+  } catch {
+    return link
+  }
+}
+
 export default function Certificates() {
   const [copiedLink, setCopiedLink] = useState('')
 
   async function handleCopy(link) {
+    const absoluteLink = getAbsoluteCertificateLink(link)
+
     try {
-      await navigator.clipboard.writeText(link)
+      await navigator.clipboard.writeText(absoluteLink)
       setCopiedLink(link)
       window.setTimeout(() => setCopiedLink(''), 1800)
     } catch {
@@ -32,10 +46,12 @@ export default function Certificates() {
   }
 
   async function handleShare(certificate) {
+    const absoluteLink = getAbsoluteCertificateLink(certificate.link)
+
     const shareData = {
       title: certificate.title,
       text: `${certificate.title} - ${certificate.issuer}`,
-      url: certificate.link,
+      url: absoluteLink,
     }
 
     if (navigator.share) {
