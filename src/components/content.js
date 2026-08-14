@@ -7,6 +7,7 @@ export const navItems = [
   { label: 'About', href: '/about' },
   { label: 'Skills', href: '/skills' },
   { label: 'Projects', href: '/projects' },
+  { label: 'Certificates', href: '/certificates' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -50,10 +51,42 @@ export const homeSections = [
     href: '/projects',
   },
   {
+    title: 'Certificates',
+    description: 'Training and achievement certificates with shareable links.',
+    href: '/certificates',
+  },
+  {
     title: 'Contact',
     description: 'Ways to connect for good-fit roles and quality collaborations.',
     href: '/contact',
   },
+]
+
+export const certificates = [
+  {
+    title: 'Data Science Modeling Certificate',
+    issuer: 'WorldQuant University',
+    description: 'Certificate for learning data science modeling and completing hands-on projects in data science and machine learning.',
+    link: '/WorldQuantUniversity_Certificate1_DataScienceModeling_Badge20260814-21-mzdbgo.pdf',
+  },
+  {
+    title: 'Data Science Course Certificate',
+    issuer: 'CodeWithHarry',
+    description: 'Certificate for completing the data science course with core concepts in analysis and applied workflows.',
+    link: '/CodeWithHarry_Data_Science_Course_Certificate.pdf',
+  },
+  {
+    title: 'Python Bootcamp Certificate',
+    issuer: 'CodeWithHarry',
+    description: 'Certificate for completing the Python bootcamp and building a foundation in Python programming.',
+    link: '/CodeWithHarry_Python_Bootcamp__Learn_Python_from_Scratch_Certificate.pdf',
+  },
+  {
+    title: 'C Programming Certificate',
+    issuer: 'Bharatacharya',
+    description: 'Certificate of completion for C programming and practice.',
+    link: '/BharatacharyaC_Programing-certificate.png',
+  }, 
 ]
 
 export const services = [
