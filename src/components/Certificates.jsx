@@ -1,7 +1,7 @@
 "use client"
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FiCopy, FiExternalLink, FiShare2 } from 'react-icons/fi'
 import { certificates } from './content'
 
@@ -13,6 +13,17 @@ function getCertificatePreview(link) {
   }
 
   return 'pdf'
+}
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+  return isMobile
 }
 
 const previewShellClassName = 'relative flex h-full w-full items-center justify-center bg-white p-4'
@@ -32,6 +43,7 @@ function getAbsoluteCertificateLink(link) {
 
 export default function Certificates() {
   const [copiedLink, setCopiedLink] = useState('')
+  const isMobile = useIsMobile()
 
   async function handleCopy(link) {
     const absoluteLink = getAbsoluteCertificateLink(link)
@@ -123,10 +135,46 @@ export default function Certificates() {
                           className="object-contain p-3"
                         />
                       </div>
+                    ) : isMobile ? (
+                      /* Mobile: iframes don't render PDFs — show a tap-to-open card */
+                      <div className="flex h-full flex-col items-center justify-center gap-5 px-6 text-center">
+                        <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-slate-100">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth={1.5}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="h-10 w-10 text-slate-400"
+                          >
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="9" y1="13" x2="15" y2="13" />
+                            <line x1="9" y1="17" x2="12" y2="17" />
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-slate-700">PDF Certificate</p>
+                          <p className="mt-1 text-xs text-slate-500">
+                            Tap the button below to open the certificate
+                          </p>
+                        </div>
+                        <a
+                          href={certificate.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center rounded-full bg-cyanwave px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:opacity-90"
+                        >
+                          <FiExternalLink className="mr-2" />
+                          Open Certificate
+                        </a>
+                      </div>
                     ) : (
                       <div className={previewShellClassName}>
                         <iframe
-                          src={certificate.link}
+                          src={`${certificate.link}#view=FitH&toolbar=0&navpanes=0&scrollbar=0`}
                           title={`${certificate.title} preview`}
                           className={previewContentClassName}
                         />
