@@ -1,6 +1,5 @@
 "use client"
 
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { FiCopy, FiExternalLink, FiShare2 } from 'react-icons/fi'
 import { certificates } from './content'
@@ -126,13 +125,12 @@ export default function Certificates() {
                   </div>
                   <div className="h-[340px] bg-white sm:h-[380px] lg:h-[400px]">
                     {getCertificatePreview(certificate.link) === 'image' ? (
-                      <div className={previewShellClassName}>
-                        <Image
+                      <div className="h-full w-full bg-white p-4">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
                           src={certificate.link}
                           alt={`${certificate.title} preview`}
-                          fill
-                          sizes="(min-width: 1024px) 40vw, 100vw"
-                          className="object-contain p-3"
+                          className="h-full w-full object-contain"
                         />
                       </div>
                     ) : isMobile ? (
