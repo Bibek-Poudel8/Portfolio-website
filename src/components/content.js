@@ -63,6 +63,12 @@ export const homeSections = [
 ]
 
 export const certificates = [
+    {
+    title: 'Data Science Lab Certificate',
+    issuer: 'WorldQuant University',
+    description: 'Applied Data Science & ML Certificate — 8 projects spanning classification, clustering, statistical testing, and time-series volatility modeling, with a focus on production-ready, business-impact pipelines',
+    link: '/WorldQuantUniversity_Certificate2_DataScienceLab20260905-20-uht14m.pdf',
+  },
   {
     title: 'Data Science Modeling Certificate',
     issuer: 'WorldQuant University',
